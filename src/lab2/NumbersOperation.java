@@ -33,47 +33,28 @@ public class NumbersOperation {
     }
 
     public String calculate() {
+        char operator = (o != '\0') ? o : (d != null ? d.charAt(0) : '\0');
         int result;
-        if (o != '\0') {
-            switch (o) {
-                case '+':
-                    result = a + b;
-                    break;
-                case '-':
-                    result = a - b;
-                    break;
-                case '*':
-                    result = a * b;
-                    break;
-                case '/':
-                    result = (b != 0) ? a / b : Integer.MIN_VALUE;
-                    break;
-                default:
-                    return "Nieznany operator!";
-            }
-        } else if (d != null) {
-            switch (d) {
-                case "+":
-                    result = a + b;
-                    break;
-                case "-":
-                    result = a - b;
-                    break;
-                case "*":
-                    result = a * b;
-                    break;
-                case "/":
-                    result = (b != 0) ? a / b : Integer.MIN_VALUE;
-                    break;
-                default:
-                    return "Nieznany operator!";
-            }
-        } else {
-            return "Nieznany operator!";
-        }
 
+        switch (operator) {
+            case '+':
+                result = a + b;
+                break;
+            case '-':
+                result = a - b;
+                break;
+            case '*':
+                result = a * b;
+                break;
+            case '/':
+                result = (b != 0) ? a / b : Integer.MIN_VALUE;
+                break;
+            default:
+                return "Nieznany operator!";
+        }
         return (result == Integer.MIN_VALUE) ? "Nie można dzielić przez zero!" : String.valueOf(result);
     }
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
