@@ -1,5 +1,7 @@
 package lab3;
 
+import lab4.Samochod;
+
 public class Main {
     public static void main(String[] args) {
         Disc disc = new Disc("IBM", 2048, 330.0);
@@ -24,5 +26,8 @@ public class Main {
 
         System.out.println(pracownik1.wiecejPracuje(pracownik2));
         System.out.println(pracownik1.czyWiecejZarabia(pracownik2));
+
+        Samochod samochod = new Samochod("Audi","A6",2020,14.4,260,5.2,"7hd85j");
+        samochod.wyswietl();
     }
 }
