@@ -1,3 +1,6 @@
+import lab3.Disc;
+import lab3.Pracownik;
+import lab4.Samochod;
 import lab5.TabliceMetodyPomocnicze;
 
 import java.util.Arrays;
@@ -5,33 +8,33 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Disc disc = new Disc("IBM", 2048, 330.0);
-//
-//        disc.setVat(12);
-//        System.out.println(disc);
-//        System.out.println("Cena brutto dysku: " + disc.getBruttoPrice() + " zł");
-//
-//        Pracownik pracownik1 = new Pracownik("Anita", "MaxWynn", 120, 60, 200);
-//        Pracownik pracownik2 = new Pracownik("Marek", "Kowalski", 110, 54, 0);
-//
-//        pracownik1.wyswietl();
-//        pracownik2.wyswietl();
-//
-//        System.out.printf("%.2f", pracownik1.obliczPodstawoweWynagrodzenie()).println(" zł");
-//        System.out.printf("%.2f", pracownik1.obliczPelneWynagrodzenie()).println(" zł");
-//
-//        System.out.println(pracownik1.czyJestPremia() ?
-//                "Pracownik ma premie " + String.format("%.2f", pracownik1.getPremia()) + " zł" : "Brak premii");
-//
-//        System.out.println(pracownik1);
-//
-//        System.out.println(pracownik1.wiecejPracuje(pracownik2));
-//        System.out.println(pracownik1.czyWiecejZarabia(pracownik2));
-//
-//        Samochod samochod = new Samochod("Audi", "A6", 2020, 14.4, 260, 5.2, "7hd85j");
-//        samochod.wyswietl();
+        Disc disc = new Disc("IBM", 2048, 330.0);
 
-        int[] t1 = new int[]{1, 2, 3, 4, 5};
+        disc.setVat(12);
+        System.out.println(disc);
+        System.out.println("Cena brutto dysku: " + disc.getBruttoPrice() + " zł");
+
+        Pracownik pracownik1 = new Pracownik("Anita", "MaxWynn", 120, 60, 200);
+        Pracownik pracownik2 = new Pracownik("Marek", "Kowalski", 110, 54, 0);
+
+        pracownik1.wyswietl();
+        pracownik2.wyswietl();
+
+        System.out.printf("%.2f", pracownik1.obliczPodstawoweWynagrodzenie()).println(" zł");
+        System.out.printf("%.2f", pracownik1.obliczPelneWynagrodzenie()).println(" zł");
+
+        System.out.println(pracownik1.czyJestPremia() ?
+                "Pracownik ma premie " + String.format("%.2f", pracownik1.getPremia()) + " zł" : "Brak premii");
+
+        System.out.println(pracownik1);
+
+        System.out.println(pracownik1.wiecejPracuje(pracownik2));
+        System.out.println(pracownik1.czyWiecejZarabia(pracownik2));
+
+        Samochod samochod = new Samochod("Audi", "A6", 2020, 14.4, 260, 5.2, "7hd85j");
+        samochod.wyswietl();
+
+        int[] t1 = new int[]{1, 2, 3, 4, 5, -5};
 
         System.out.println("Podaj rozmiar tablicy ");
         Scanner scanner = new Scanner(System.in);
@@ -49,6 +52,14 @@ public class Main {
         System.out.println(TabliceMetodyPomocnicze.znajdzIndeksElementu(t1, 9));
         System.out.println(TabliceMetodyPomocnicze.zerujParzyste(t1));
         System.out.println(Arrays.toString(t1));
+        System.out.println(Arrays.toString(TabliceMetodyPomocnicze.zwrocTabliceKwadratow(t1)));
+        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, true).getEkstremum());
+        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, true).getIndeks());
+        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, false).getEkstremum());
+        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, false).getIndeks());
+        System.out.println(TabliceMetodyPomocnicze.obliczIlePlusMinusZer(t1).getDodatnie());
+        System.out.println(TabliceMetodyPomocnicze.obliczIlePlusMinusZer(t1).getUjemne());
+        System.out.println(TabliceMetodyPomocnicze.obliczIlePlusMinusZer(t1).getZera());
 
     }
 }
