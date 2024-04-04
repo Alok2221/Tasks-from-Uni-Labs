@@ -53,13 +53,8 @@ public class Main {
         System.out.println(TabliceMetodyPomocnicze.zerujParzyste(t1));
         System.out.println(Arrays.toString(t1));
         System.out.println(Arrays.toString(TabliceMetodyPomocnicze.zwrocTabliceKwadratow(t1)));
-        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, true).getEkstremum());
-        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, true).getIndeks());
-        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, false).getEkstremum());
-        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, false).getIndeks());
-        System.out.println(TabliceMetodyPomocnicze.obliczIlePlusMinusZer(t1).getDodatnie());
-        System.out.println(TabliceMetodyPomocnicze.obliczIlePlusMinusZer(t1).getUjemne());
-        System.out.println(TabliceMetodyPomocnicze.obliczIlePlusMinusZer(t1).getZera());
-
+        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, true));
+        System.out.println(TabliceMetodyPomocnicze.znajdzWartoscOrazIndeks(t1, false));
+        System.out.println(TabliceMetodyPomocnicze.obliczIlePlusMinusZer(t1));
     }
 }

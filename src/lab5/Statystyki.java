@@ -41,4 +41,14 @@ public class Statystyki {
     public void zwiekszZera() {
         zera++;
     }
+
+    @Override
+    public String toString() {
+        return """
+                Statystyki:
+                Dodatnie: %s
+                Ujemne: %s
+                Zera: %s
+                """.formatted(dodatnie, ujemne, zera);
+    }
 }

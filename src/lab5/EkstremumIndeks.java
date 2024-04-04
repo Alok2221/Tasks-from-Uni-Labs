@@ -20,4 +20,12 @@ public class EkstremumIndeks {
     public int getIndeks() {
         return indeks;
     }
+
+    @Override
+    public String toString() {
+        return """
+                %s
+                %s
+                """.formatted(getEkstremum(), getIndeks());
+    }
 }
