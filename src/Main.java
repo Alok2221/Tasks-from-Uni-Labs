@@ -35,7 +35,7 @@ public class Main {
         Samochod samochod = new Samochod("Audi", "A6", 2020, 14.4, 260, 5.2, "7hd85j");
         samochod.wyswietl();
 
-        int[] t1 = new int[]{1, 2, 3, 4, 5, -5};
+        int[] t1 = new int[]{1, 2, 3, 3, 4, 5, 5, -5};
 
         System.out.println("Podaj rozmiar tablicy ");
         Scanner scanner = new Scanner(System.in);
@@ -69,6 +69,7 @@ public class Main {
             if (i < sredniaPow) System.out.print(i + ", ");
         }
         System.out.println();
-        System.out.println(nieParzyste(t1));
+        System.out.println("Liczby nie parzyste: " + nieParzyste(t1));
+        System.out.println(ilePar(t1));
     }
 }

@@ -105,11 +105,22 @@ public class TabliceMetodyPomocnicze {
     public static int nieParzyste(int[] tab) {
         int count = 0;
         for (int i = 0; i < tab.length; i++) {
-            if (tab[i] % 2 == 0) {
+            if (tab[i] % 2 != 0) {
                 tab[i]++;
                 count++;
             }
         }
+        return count;
+    }
+
+    public static int ilePar(int[] tab) {
+        int count = 0;
+        for (int i = 0; i < tab.length-1; i++) {
+            if (tab[i] == tab[i + 1]) {
+                count++;
+            }
+        }
+
         return count;
     }
 
