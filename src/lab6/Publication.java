@@ -17,13 +17,13 @@ package lab6;
 //        - display  –metoda wyświetlająca dane publikacji
 //        - metoda toString() zwracajaca  String –  napis zawierający informacje o publikacji
 
-public class Publications {
+public class Publication {
     private String title;
-    private int ident;
+    private String ident;
     private double price;
     private int quantity;
 
-    public Publications(String title, int ident, double price, int quantity) {
+    public Publication(String title, String ident, double price, int quantity) {
         this.title = title;
         this.ident = ident;
         this.price = price;
@@ -60,11 +60,11 @@ public class Publications {
         this.title = title;
     }
 
-    public int getIdent() {
+    public String getIdent() {
         return ident;
     }
 
-    public void setIdent(int ident) {
+    public void setIdent(String ident) {
         this.ident = ident;
     }
 
@@ -82,11 +82,5 @@ public class Publications {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public static void main(String[] args) {
-        Publications publications = new Publications("Ktoś", 0, 40.0, 100);
-        System.out.println(publications);
-        publications.display();
     }
 }
