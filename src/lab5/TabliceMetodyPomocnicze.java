@@ -102,6 +102,17 @@ public class TabliceMetodyPomocnicze {
         return statystyki;
     }
 
+    public static int nieParzyste(int[] tab) {
+        int count = 0;
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] % 2 == 0) {
+                tab[i]++;
+                count++;
+            }
+        }
+        return count;
+    }
+
     private static void czyJestPusta(int[] tab) {
         if (tab == null || tab.length == 0) {
             throw new IllegalArgumentException("Tablica jest pusta");
