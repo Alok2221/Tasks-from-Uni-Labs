@@ -41,6 +41,10 @@ public class MultiDimensionalArrays {
         System.out.println(diagonalSumThreeDim(arrThreeD));
 
 
+        int[][] arr = {{1, 2, 3, 4}, {8, 9, -1, 0}, {3, 5, 8, 6, 3}};
+
+        System.out.println(Arrays.toString(findMaxValue(arr)));
+        System.out.println(countGreaterAverage(arr));
     }
 
     public static int[][] generateTwoDimArray(int length) {
@@ -80,4 +84,40 @@ public class MultiDimensionalArrays {
         }
         return sum;
     }
+
+    public static int[] findMaxValue(int[][] arr) {
+        int max = Integer.MIN_VALUE;
+        int rowIndex = -1;
+        int colIndex = -1;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > max) {
+                    max = arr[i][j];
+                    rowIndex = i;
+                    colIndex = j;
+                }
+            }
+        }
+        return new int[]{max, rowIndex, colIndex};
+    }
+
+    public static int countGreaterAverage(int[][] array) {
+        int sum = 0;
+        int count = 0;
+        for (int[] row : array) {
+            for (int num : row) {
+                sum += num;
+            }
+        }
+        double average = (double) sum / (array.length * array[0].length);
+        for (int[] row : array) {
+            for (int num : row) {
+                if (num > average) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
 }
