@@ -1,6 +1,6 @@
 package lab7;
 
-//      Pobierz liczbę elementów  n z klawiatury.  Utwórz tablicę o wymiarze n x n. Wypełnij ją losowymi liczbami z przedziału 0 – 10.
+//        1) Pobierz liczbę elementów  n z klawiatury.  Utwórz tablicę o wymiarze n x n. Wypełnij ją losowymi liczbami z przedziału 0 – 10.
 //        a.   Oblicz sumę liczb, znajdujących się na przekątnych.
 //              Wykonaj podobne działanie dla tablicy n x n x n.
 //        b.   Znajdź   największą   wartość   w   tablicy   wielowymiarowej n x n, wyświetl jej indeksy(który wiersz i kolumna)
