@@ -8,9 +8,9 @@ package lab7;
 //        2)   Dla zadanej tablicy n x m utwórz nową tablicę o długości n (lub m),
 //              uzupełnij ją kolejno średnimi wartościami z poszczególnych wierszy / kolumny pierwszej tablicy.
 //        3) Napisz metodę obliczSrednieWierszami,  która  dla  danej  parametrem  macierzy
-//              zwróci  w wyniku  tablicę  w  której    kolejnych  składowych  zapisze  średnie odpowiednich    wierszy macierzy.
+//              zwróci  w wyniku  tablicę  w  której    kolejnych  składowych  zapisze  średnie odpowiednich wierszy macierzy.
 //        4) Napisz metodę obliczMinimaWierszami,  która  dla  danej  parametrem  macierzy
-//              zwróci  w wyniku tablicę w której  kolejnych składowych zapisze elementy minimalne odpowiednich  wierszy macierzy.
+//              zwróci  w wyniku tablicę w której  kolejnych składowych zapisze elementy minimalne odpowiednich wierszy macierzy.
 //        5)   Napisz  metodę  wyznaczIndeksWierszaZMinSuma  zwraca  numer  tego  wiersza
 //              macierzy, będącej parametrem funkcji, w którym suma elementów w wierszu była najmniejsza
 //        6)   Napisz  funkcję  wyznaczIndeksKolumnyMaxSuma  zwraca  numer  tej  kolumny
@@ -33,22 +33,26 @@ public class MultiDimensionalArrays {
         int n = new Scanner(System.in).nextInt();
 
         int[][] arrTwoD = generateTwoDimArray(n);
-        System.out.println(Arrays.deepToString(arrTwoD));
+        printTwoDimArray(arrTwoD);
         System.out.println(diagonalSumTwoDim(arrTwoD));
 
         int[][][] arrThreeD = generateThreeDimArray(n);
-        System.out.println(Arrays.deepToString(arrThreeD));
+        printThreeDimArray(arrThreeD);
         System.out.println(diagonalSumThreeDim(arrThreeD));
 
 
         int[][] arr = {{1, 2, 3, 4}, {8, 9, -1, 0}, {3, 5, 8, 6, 3}};
 
-        System.out.println(Arrays.toString(findMaxValue(arr)));
+        printArray(findMaxValue(arr));
         System.out.println(countGreaterAverage(arr));
 
         int[][] generateTwoDimArrayNM = generateTwoDimArrayNM(4, 5);
-        System.out.println(Arrays.toString(rowAverage(generateTwoDimArrayNM)));
-        System.out.println(Arrays.toString(columnAverage(generateTwoDimArrayNM)));
+        printArray(rowAverage(generateTwoDimArrayNM));
+        printArray(columnAverage(generateTwoDimArrayNM));
+
+        printArray(countRowMinimal(generateTwoDimArrayNM));
+
+        System.out.println(determineRowIndexFromMinSum(generateTwoDimArrayNM));
     }
 
     public static int[][] generateTwoDimArray(int length) {
@@ -146,6 +150,7 @@ public class MultiDimensionalArrays {
         }
         return srednie;
     }
+
     public static int[] columnAverage(int[][] arr) {
         int[] srednie = new int[arr[0].length];
         for (int j = 0; j < arr[0].length; j++) {
@@ -157,4 +162,57 @@ public class MultiDimensionalArrays {
         }
         return srednie;
     }
+
+    public static void printArray(int[] arr) {
+        for (int value : arr) {
+            System.out.print(value + "\t");
+        }
+        System.out.println();
+    }
+
+    public static void printTwoDimArray(int[][] arr) {
+        for (int[] row : arr) {
+            for (int value : row) {
+                System.out.print(value + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printThreeDimArray(int[][][] arr) {
+        for (int[][] matrix2D : arr) {
+            for (int[] row : matrix2D) {
+                for (int value : row) {
+                    System.out.print(value + "\t");
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+    }
+
+    public static int[] countRowMinimal(int[][] arr) {
+        int[] minima = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            minima[i] = Arrays.stream(arr[i]).min().orElse(Integer.MAX_VALUE);
+        }
+        return minima;
+    }
+
+    public static int determineRowIndexFromMinSum(int[][] arr) {
+        int index = 0;
+        int minSum = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            int suma = 0;
+            for (int j = 0; j < arr[i].length; j++) {
+                suma += arr[i][j];
+            }
+            if (suma < minSum) {
+                minSum = suma;
+                index = i;
+            }
+        }
+        return index;
+    }
+
 }
