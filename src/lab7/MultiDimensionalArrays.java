@@ -45,6 +45,10 @@ public class MultiDimensionalArrays {
 
         System.out.println(Arrays.toString(findMaxValue(arr)));
         System.out.println(countGreaterAverage(arr));
+
+        int[][] generateTwoDimArrayNM = generateTwoDimArrayNM(4, 5);
+        System.out.println(Arrays.toString(rowAverage(generateTwoDimArrayNM)));
+        System.out.println(Arrays.toString(columnAverage(generateTwoDimArrayNM)));
     }
 
     public static int[][] generateTwoDimArray(int length) {
@@ -120,4 +124,37 @@ public class MultiDimensionalArrays {
         return count;
     }
 
+    public static int[][] generateTwoDimArrayNM(int n, int m) {
+        Random rand = new Random();
+        int[][] tablica = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                tablica[i][j] = rand.nextInt(11);
+            }
+        }
+        return tablica;
+    }
+
+    public static int[] rowAverage(int[][] arr) {
+        int[] srednie = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            int suma = 0;
+            for (int j = 0; j < arr[i].length; j++) {
+                suma += arr[i][j];
+            }
+            srednie[i] = suma / arr[i].length;
+        }
+        return srednie;
+    }
+    public static int[] columnAverage(int[][] arr) {
+        int[] srednie = new int[arr[0].length];
+        for (int j = 0; j < arr[0].length; j++) {
+            int suma = 0;
+            for (int[] ints : arr) {
+                suma += ints[j];
+            }
+            srednie[j] = suma / arr.length;
+        }
+        return srednie;
+    }
 }
