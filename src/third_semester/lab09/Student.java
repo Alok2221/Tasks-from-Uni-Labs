@@ -20,12 +20,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return """
-                Student
-                Imię: %s
-                Nazwisko: %s
-                Index: %s
-                Grupa: %s
-                """.formatted(name, surname, index, group);
+        return name + ", " + surname + ", " + index + ", " + group + "\n";
     }
 }

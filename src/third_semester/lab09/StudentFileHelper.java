@@ -1,7 +1,6 @@
 package third_semester.lab09;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,9 +16,24 @@ public class StudentFileHelper {
                 studentList.add(new Student(fields.get(0), fields.get(1), fields.get(2), Group.valueOf(fields.get(3))));
             }
         } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
 
         return studentList;
+    }
+
+    public static void write() {
+        List<Student> studentList = read();
+        String basePath = "resources/studentsGroup";
+
+        for (Student student : studentList) {
+            String fileName = basePath + student.getGroup() + ".txt";
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+                writer.write(student + "\n");
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
+        }
     }
 }
